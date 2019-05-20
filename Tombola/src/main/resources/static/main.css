@@ -1,0 +1,54 @@
+body {
+	font-family: sans-serif;
+	font-size: 20px;
+}
+
+.broj {
+	font-size: 20px;
+	height: 30px;
+	width: 35px;
+	text-align: center;
+}
+
+#ime {
+	height: 30px;
+	font-size: 20px;
+	width: 300px;
+}
+
+table td {
+	font-size: 20px;
+	padding: 5px;
+}
+
+.button {
+	background-color: #333;
+	border: none;
+	color: white;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+	width: 70px;
+}
+
+h1 {
+	text-align: center;
+}
+
+.tabela {
+	margin: auto;
+}
+
+.listaIgraca table {
+	text-align: center;
+}
+
+#Izvlacenje {
+	text-align: center
+}
+/* -------------------- kraj pocetna.jsp ------------------ */
+/* -------------------- pocetak izvlacenje.jsp/ listaPobednika.jsp ------------ */
+#IzvlacenjeBrojeva {
+	text-align: center;
+}
