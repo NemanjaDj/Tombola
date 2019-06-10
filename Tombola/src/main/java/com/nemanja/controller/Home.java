@@ -14,6 +14,7 @@ import com.nemanja.service.IgracService;
 
 @Controller
 public class Home {
+	
 	@Autowired
 	private IgracService igracService;
 

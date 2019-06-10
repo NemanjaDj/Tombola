@@ -26,19 +26,15 @@ public class IgraService {
 	}
 
 	// metoda proverava da li igrac ima dobitnu kombinaciju
-	public boolean proveri(ArrayList<Integer> brojevi, ArrayList<Integer> svibrojevi) {
-		
-		int x = 0;
-		for (int i = 0; i < svibrojevi.size(); i++) {
-			for (int y = 0; y < brojevi.size(); y++) {
-				if (brojevi.get(y) == svibrojevi.get(i)) {
-					x++;
-				}
-			}
+	public boolean proveri(ArrayList<Integer> igraceviBrojevi, int[] igracovNiz, ArrayList<Integer> svibrojevi) {
+		int x = svibrojevi.size();
+		boolean proveriBroj = igraceviBrojevi.contains(svibrojevi.get(x-1));
+		if(proveriBroj) {
+			igracovNiz[svibrojevi.get(x-1)] = 1;
+			igracovNiz[0] += 1;
 		}
-		if (x == 6)
+		if(igracovNiz[0] == 6)
 			return true;
-		else
 			return false;
 	}
 
@@ -57,7 +53,7 @@ public class IgraService {
 			brojevi.add(svibrojevi.indexOf(i));
 			
 			for (Igrac x : igraci) {
-				dobitnik = proveri(igracService.PrikazKombinacije(x.getBrojevi()), brojevi);
+				dobitnik = proveri(igracService.PrikazKombinacije(x.getBrojevi()),x.getNizBrojeva(), brojevi);
 				if (dobitnik) {
 					Igra igr = igraDao.findById(igraDao.poslednjaIgraId());
 					igr.setDobitnaKomb(x.getBrojevi());
@@ -70,11 +66,6 @@ public class IgraService {
 			i++;
 		}
 		return brojevi;
-	}
-	
-	public int izvuceniBrojevi(){
-		ArrayList<Integer> izvBrojevi = tombola();
-		return izvBrojevi.get(0);
 	}
 	
 	public String pobednik() {

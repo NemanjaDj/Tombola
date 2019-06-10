@@ -18,6 +18,8 @@ public class Igrac {
 	private String ime;
 	@Column(length = 60)
 	private String brojevi;
+	// u ovom nizu stavljamo jedinice na pozicijama brojeva koji su izvuceni a korisnik ih ima u kombinaciji
+	private int[] nizBrojeva = new int[37];
 	
 	public Igrac() {}
 	
@@ -26,6 +28,21 @@ public class Igrac {
 		this.ime = ime;
 		this.brojevi = brojevi;
 	}
+
+	public int[] getNizBrojeva() {
+		return nizBrojeva;
+	}
+
+	public void setNizBrojeva() {
+		for(int i = 0; i < nizBrojeva.length; i++) {
+			nizBrojeva[i] = 0;
+		}
+	}
+
+	public void setIdIgraca(int idIgraca) {
+		this.idIgraca = idIgraca;
+	}
+
 	public String getIme() {
 		return ime;
 	}

@@ -1,7 +1,9 @@
 package com.nemanja.service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -26,13 +28,17 @@ public class IgracService {
 	// metoda proverava da li su brojevi jedinstveni
 	public void jedinsteviBrojevi(int broj1, int broj2, int broj3, int broj4, int broj5, int broj6)
 	throws IndexOutOfBoundsException {
-		int[] brojevi = {broj1, broj2, broj3, broj4, broj5, broj6}; 
-		for(int i=0; i < brojevi.length-1 ; i++) {
-			for(int j=i+1; j < brojevi.length-1 ; j++) {
-				if(brojevi[i] == brojevi[j])
-					throw new IndexOutOfBoundsException("Brojevi nisu jedinstveni!");
-			}
+		Set<Integer> brojevi = new HashSet<Integer>();
+		brojevi.add(broj1);
+		brojevi.add(broj2);
+		brojevi.add(broj3);
+		brojevi.add(broj4);
+		brojevi.add(broj5);
+		brojevi.add(broj6);
+		if(brojevi.size() < 6){
+			throw new IndexOutOfBoundsException("brojevi moraju biti jedinstveni!");
 		}
+		brojevi.clear();
 	}
 	
 	// metoda proverava da li je uneto ime duze od 3 karaktera ili white space
